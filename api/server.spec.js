@@ -13,6 +13,24 @@ describe('server.js', () => {
           expect(res.status).toBe(200);
         });
     })
+
+    it('should return array ', () => {
+     
+      return request(server)
+        .get('/games')
+        .then(res => {
+          expect(Array.isArray(res.body)).toBe(true)
+        });
+    })
+    it('should return JSON', () => {
+      return request(server).get('/')
+      .then(res => {
+        expect(res.type).toEqual('application/json');
+      });
+      
+    });
+
+
 })
 
 describe('POST /games', () => {
