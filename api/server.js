@@ -18,6 +18,16 @@ server.get('/games', (req, res) => {
         
 })
 
+//POST
+server.post('/games', (req,res) => {
+    const { id, title, releaseYear} = req.body
+    
+    if(!id || !title || !releaseYear) {
+        res.status(422).json(false)
+    } else{
+        res.status(201).json(true)
+    }
+})
 let data = [
     {id: 1, title:'Donkey Kong', releaseYear:'1981'},
     {id: 2, title:'Sonic', releaseYear:'1991'},
